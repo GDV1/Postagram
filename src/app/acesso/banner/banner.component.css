@@ -2,7 +2,9 @@ img { position: absolute; }
 
 .banner-background {
     background-image: url("../../../assets/banner-acesso/fundo.png");
-    height: 600px;
+    height: 682px;
     width: 379px;
-    margin-top: -40px;
+    padding-top: 91px;
+    padding-left: 116px;
+    background-repeat: no-repeat;
 }
