@@ -12,6 +12,7 @@ import { CadastroComponent } from './acesso/cadastro/cadastro.component';
 import { Auth } from './auth.service';
 import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
+import { AuthGard } from './authGard.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,10 @@ import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ Auth ],
+  providers: [ 
+    Auth,
+    AuthGard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
