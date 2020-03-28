@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -12,11 +13,20 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
+  public formulario: FormGroup = new FormGroup({
+    'email': new FormControl(),
+    'senha': new FormControl(),
+  });
+
   ngOnInit(): void {
   }
 
   public exibirPainelCadastro(): void {
     this.exibirPainel.emit('cadastro');
+  }
+
+  public autenticar(): void {
+    console.log(this.formulario);
   }
 
 }
