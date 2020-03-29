@@ -30,4 +30,12 @@ export class BD {
                     );
             });
     }
+
+    public consultaPublicacoes(emailUser: string): any {
+        firebase.database().ref(`publicacoes/${btoa(emailUser)}`)
+        .once('value')
+        .then((snapshot: any) => {
+            console.log(snapshot.val());
+        });
+    }
 }
