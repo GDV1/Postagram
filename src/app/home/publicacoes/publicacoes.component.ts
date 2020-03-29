@@ -12,6 +12,7 @@ export class PublicacoesComponent implements OnInit {
   constructor(private bd: BD) { }
 
   public email;
+  public publicacoes;
 
   ngOnInit(): void {
     firebase.auth().onAuthStateChanged((user) => {
@@ -21,6 +22,9 @@ export class PublicacoesComponent implements OnInit {
   }
 
   public atualizarTimeline(): void {
-    this.bd.consultaPublicacoes(this.email);
+    this.bd.consultaPublicacoes(this.email)
+    .then((publicacoes: any) => {
+        this.publicacoes = publicacoes;
+    });
   }
 }
