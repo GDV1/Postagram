@@ -10,6 +10,6 @@
 
 <br /><br /><br />
 <div class="container">
-  <app-publicacoes></app-publicacoes>
-  <app-nova-publicacao></app-nova-publicacao>
+  <app-publicacoes #publicacoes></app-publicacoes>
+  <app-nova-publicacao (atualizarTimeline)="atualizarTimeline()"></app-nova-publicacao>
 </div>
