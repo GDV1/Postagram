@@ -11,6 +11,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <input type="file"
+                    class="form-control"
+                    accept="image/*"
+                    (change)="preparaImagemUpload($event)"
+                    >
                     <input type="text" 
                     placeholder="Título da publicação"
                     class="form-control"
