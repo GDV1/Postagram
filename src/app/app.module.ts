@@ -15,6 +15,7 @@ import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
 import { AuthGard } from './authGard.service';
 import { NovaPublicacaoComponent } from './home/nova-publicacao/nova-publicacao.component';
 import { BD } from './bd.service';
+import { Progresso } from './progresso.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { BD } from './bd.service';
   providers: [
     Auth,
     AuthGard,
-    BD
+    BD,
+    Progresso
   ],
   bootstrap: [AppComponent]
 })
