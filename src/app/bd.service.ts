@@ -47,10 +47,14 @@ export class BD {
                 .getDownloadURL()
                 .then((url: string) => {
                     publicacao.urlImagem = url;
-                    publicacoes.push(publicacao);
+                    firebase.database().ref(`usuario_detalhe/${btoa(emailUser)}`)
+                    .once('value')
+                    .then((snapshot: any) => {
+                        publicacao.nomeUsuario = snapshot.val().nomeUsuario;
+                        publicacoes.push(publicacao);
+                    });
                 });
             });
-
             console.log(publicacoes);
         });
     }
