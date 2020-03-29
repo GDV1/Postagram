@@ -36,6 +36,22 @@ export class BD {
         .once('value')
         .then((snapshot: any) => {
             console.log(snapshot.val());
+
+            let publicacoes: Array<any> = [];
+
+            snapshot.forEach((childSnapshot: any) => {
+
+                let publicacao = childSnapshot.val();
+
+                firebase.storage().ref().child(`imagens/${childSnapshot.key}`)
+                .getDownloadURL()
+                .then((url: string) => {
+                    publicacao.urlImagem = url;
+                    publicacoes.push(publicacao);
+                });
+            });
+
+            console.log(publicacoes);
         });
     }
 }
