@@ -17,6 +17,9 @@ export class NovaPublicacaoComponent implements OnInit {
   public email;
   private imagem;
 
+  public progressoPublicacao = 'Pendente';
+  public porcentagemUpload;
+
   public formulario: FormGroup = new FormGroup({
     'titulo': new FormControl(null),
   });
@@ -51,18 +54,17 @@ export class NovaPublicacaoComponent implements OnInit {
     acompanharUpload
     .takeUntil(continua)
     .subscribe(() => {
-      console.log(this.progresso.estado);
-      console.log(this.progresso.status);
+      this.progressoPublicacao = 'Andamento';
+      this.porcentagemUpload = Math.round((this.progresso.estado.bytesTransferred / this.progresso.estado.totalBytes) * 100);
 
-      if (this.progresso.status === 'concluído') {
+      if (this.progresso.status === 'Concluido') {
+        this.progressoPublicacao = 'Concluido';
         continua.next(false);
       }
     });
-
   }
 
   public preparaImagemUpload(event: Event): void {
     this.imagem = (<HTMLInputElement>event.target).files;
   }
-
 }
