@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
 import { AuthGard } from './authGard.service';
 import { NovaPublicacaoComponent } from './home/nova-publicacao/nova-publicacao.component';
+import { BD } from './bd.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +34,10 @@ import { NovaPublicacaoComponent } from './home/nova-publicacao/nova-publicacao.
     ReactiveFormsModule,
     FormsModule
   ],
-  providers: [ 
+  providers: [
     Auth,
-    AuthGard
+    AuthGard,
+    BD
   ],
   bootstrap: [AppComponent]
 })

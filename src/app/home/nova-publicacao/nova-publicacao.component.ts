@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { BD } from 'src/app/bd.service';
 
 @Component({
   selector: 'app-nova-publicacao',
@@ -12,13 +13,13 @@ export class NovaPublicacaoComponent implements OnInit {
     'titulo': new FormControl(null),
   });
 
-  constructor() { }
+  constructor(private bd: BD) { }
 
   ngOnInit(): void {
   }
 
   public publicar(): void {
-    console.log('Chegamos aqui!');
+    this.bd.publicar();
   }
 
 }
